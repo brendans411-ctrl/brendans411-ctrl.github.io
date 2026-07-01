@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORBIT — Account & Data Deletion</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #05030f;
+    color: #d0e8ff;
+    font-family: 'SF Mono', 'JetBrains Mono', 'Courier New', monospace;
+    min-height: 100vh;
+  }
+  body { padding: 0 20px 60px; }
+
+  header {
+    text-align: center;
+    padding: 48px 0 36px;
+    border-bottom: 1px solid rgba(0,229,255,0.15);
+    margin-bottom: 48px;
+  }
+  header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: #00e5ff;
+    text-shadow: 0 0 12px rgba(0,229,255,0.7), 0 0 28px rgba(0,229,255,0.4);
+    margin-bottom: 8px;
+  }
+  header p {
+    font-size: 13px;
+    color: rgba(140,180,220,0.6);
+    letter-spacing: 1px;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  section { margin-bottom: 40px; }
+
+  h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #00e5ff;
+    text-shadow: 0 0 8px rgba(0,229,255,0.5);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  p, li {
+    font-size: 14px;
+    line-height: 1.85;
+    color: rgba(200,220,255,0.8);
+  }
+
+  ul {
+    padding-left: 20px;
+    margin-top: 8px;
+  }
+  li { margin-bottom: 6px; }
+
+  .card {
+    background: rgba(0,229,255,0.05);
+    border: 1px solid rgba(0,229,255,0.2);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-top: 12px;
+  }
+
+  .step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+  .step:last-child { margin-bottom: 0; }
+  .step-num {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(0,229,255,0.15);
+    border: 1px solid rgba(0,229,255,0.4);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    color: #00e5ff;
+  }
+  .step-text { font-size: 14px; line-height: 1.7; color: rgba(200,220,255,0.85); }
+  .step-text strong { color: #7df5ff; font-weight: 700; }
+
+  .email-btn {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 13px 32px;
+    background: linear-gradient(180deg, #5cf3ff, #00b8d4);
+    color: #03010a;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    border: none;
+    border-radius: 999px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 0 16px rgba(0,229,255,0.5), 0 0 36px rgba(0,229,255,0.25);
+    transition: transform 0.08s ease;
+  }
+  .email-btn:hover { transform: scale(1.02); }
+
+  .divider {
+    height: 1px;
+    background: rgba(0,229,255,0.1);
+    margin: 40px 0;
+  }
+
+  .retention-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 13px;
+  }
+  .retention-table th {
+    text-align: left;
+    padding: 10px 12px;
+    color: rgba(0,229,255,0.7);
+    letter-spacing: 1.5px;
+    font-size: 11px;
+    border-bottom: 1px solid rgba(0,229,255,0.15);
+  }
+  .retention-table td {
+    padding: 10px 12px;
+    color: rgba(200,220,255,0.75);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    line-height: 1.5;
+  }
+  .retention-table tr:last-child td { border-bottom: none; }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0,229,255,0.1);
+    font-size: 11px;
+    color: rgba(100,130,160,0.5);
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ORBIT</h1>
+  <p>Account &amp; Data Deletion Request</p>
+</header>
+
+<div class="container">
+
+  <section>
+    <h2>What data we store</h2>
+    <p>When you play ORBIT and sign in with Google or create a guest username, we store the following data in Firebase Realtime Database:</p>
+    <ul>
+      <li>Your chosen display name (pilot name)</li>
+      <li>Your personal best score (longest orbit time in seconds)</li>
+      <li>A unique player ID (Firebase UID for Google sign-in, or a randomly generated ID for guests)</li>
+      <li>The timestamp of your last score submission</li>
+    </ul>
+    <p style="margin-top:12px;">We do not store passwords, payment information, location data, or any other personal information beyond what is listed above.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2>How to request deletion</h2>
+    <div class="card">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Send an email to <strong>brendan@xpresslogistics.com.au</strong> with the subject line <strong>ORBIT Data Deletion Request</strong></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Include your <strong>pilot name</strong> (the name shown on the leaderboard) and/or the <strong>Google account email</strong> you used to sign in</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">We will delete your data within <strong>7 days</strong> and confirm by reply email</div>
+      </div>
+      <a class="email-btn" href="mailto:brendan@xpresslogistics.com.au?subject=ORBIT%20Data%20Deletion%20Request&body=Hi%2C%0A%0AI%20would%20like%20to%20request%20deletion%20of%20my%20ORBIT%20game%20data.%0A%0APilot%20name%3A%20%5Byour%20name%5D%0AGoogle%20account%20%28if%20applicable%29%3A%20%5Byour%20email%5D%0A%0AThank%20you.">
+        EMAIL DELETION REQUEST
+      </a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2>Data retention after deletion</h2>
+    <table class="retention-table">
+      <tr>
+        <th>Data type</th>
+        <th>Deleted when?</th>
+        <th>Notes</th>
+      </tr>
+      <tr>
+        <td>Pilot name</td>
+        <td>Within 7 days of request</td>
+        <td>Removed from leaderboard immediately</td>
+      </tr>
+      <tr>
+        <td>Score / personal best</td>
+        <td>Within 7 days of request</td>
+        <td>Removed from all leaderboards</td>
+      </tr>
+      <tr>
+        <td>Player ID</td>
+        <td>Within 7 days of request</td>
+        <td>Firebase UID or guest ID deleted</td>
+      </tr>
+      <tr>
+        <td>Local device data</td>
+        <td>Immediately on app uninstall</td>
+        <td>Stored in device localStorage only</td>
+      </tr>
+    </table>
+    <p style="margin-top:14px;">Note: If you signed in with Google, deleting your ORBIT data does not affect your Google account in any way.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2>Questions</h2>
+    <p>If you have any questions about your data or this process, contact us at <strong style="color:#7df5ff;">brendan@xpresslogistics.com.au</strong></p>
+  </section>
+
+  <footer>
+    ORBIT · Developed by Brendan Shannon<br>
+    Last updated: July 2026
+  </footer>
+
+</div>
+</body>
+</html>
